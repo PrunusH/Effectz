@@ -64,6 +64,7 @@ namespace Effectz
             }
             else
             {
+                btn_pause.Visible = false;
                 timer.Enabled = false;
             }
         }
