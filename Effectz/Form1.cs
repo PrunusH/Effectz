@@ -28,7 +28,7 @@ namespace Effectz
         {
             txt_currentid.Text = nmr_startid.Text;
             await Connection.SendToClientAsync(new HMessage(RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
-            timer.Enabled = true;
+            timer.Start();
             btn_pause.Text = "⏸Pause";
             btn_pause.Visible = true;
         }
@@ -37,12 +37,12 @@ namespace Effectz
         {
             if (btn_pause.Text == "⏸Pause")
             {
-                timer.Enabled = false;
+                timer.Stop();
                 btn_pause.Text = "▶Resume";
             }
             else if (btn_pause.Text == "▶Resume")
             {
-                timer.Enabled = true;
+                timer.Start();
                 btn_pause.Text = "⏸Pause";
             }
         }
@@ -65,7 +65,7 @@ namespace Effectz
             else
             {
                 btn_pause.Visible = false;
-                timer.Enabled = false;
+                timer.Stop();
             }
         }
 
