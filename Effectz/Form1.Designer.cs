@@ -38,7 +38,6 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.btn_start = new System.Windows.Forms.Button();
             this.btn_pause = new System.Windows.Forms.Button();
-            this.lbl_currentid = new System.Windows.Forms.Label();
             this.chk_loop = new System.Windows.Forms.CheckBox();
             this.txt_currentid = new System.Windows.Forms.TextBox();
             this.btn_applycurrent = new System.Windows.Forms.Button();
@@ -173,16 +172,6 @@
             this.btn_pause.UseVisualStyleBackColor = true;
             this.btn_pause.Visible = false;
             this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
-            // 
-            // lbl_currentid
-            // 
-            this.lbl_currentid.AutoSize = true;
-            this.lbl_currentid.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_currentid.Location = new System.Drawing.Point(125, 7);
-            this.lbl_currentid.Name = "lbl_currentid";
-            this.lbl_currentid.Size = new System.Drawing.Size(50, 37);
-            this.lbl_currentid.TabIndex = 3;
-            this.lbl_currentid.Text = "ID";
             // 
             // chk_loop
             // 
@@ -335,7 +324,6 @@
             this.Controls.Add(this.nmr_startid);
             this.Controls.Add(this.lbl_startid);
             this.Controls.Add(this.txt_currentid);
-            this.Controls.Add(this.lbl_currentid);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "GUI";
@@ -363,7 +351,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Button btn_start;
         private System.Windows.Forms.Button btn_pause;
-        private System.Windows.Forms.Label lbl_currentid;
         private System.Windows.Forms.CheckBox chk_loop;
         private System.Windows.Forms.TextBox txt_currentid;
         private System.Windows.Forms.Button btn_applycurrent;
