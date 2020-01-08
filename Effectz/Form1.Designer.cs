@@ -210,6 +210,7 @@
             this.btn_applycurrent.Size = new System.Drawing.Size(17, 41);
             this.btn_applycurrent.TabIndex = 6;
             this.btn_applycurrent.Text = ">";
+            this.toolTip.SetToolTip(this.btn_applycurrent, "Directly apply effect to selected index");
             this.btn_applycurrent.UseVisualStyleBackColor = true;
             this.btn_applycurrent.Click += new System.EventHandler(this.btn_applycurrent_Click);
             // 
