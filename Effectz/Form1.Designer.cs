@@ -176,7 +176,7 @@
             // chk_loop
             // 
             this.chk_loop.AutoSize = true;
-            this.chk_loop.Location = new System.Drawing.Point(124, 48);
+            this.chk_loop.Location = new System.Drawing.Point(124, 23);
             this.chk_loop.Name = "chk_loop";
             this.chk_loop.Size = new System.Drawing.Size(50, 17);
             this.chk_loop.TabIndex = 4;
@@ -186,15 +186,15 @@
             // txt_currentid
             // 
             this.txt_currentid.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.txt_currentid.Location = new System.Drawing.Point(124, 7);
+            this.txt_currentid.Location = new System.Drawing.Point(12, 140);
             this.txt_currentid.Name = "txt_currentid";
-            this.txt_currentid.Size = new System.Drawing.Size(66, 41);
+            this.txt_currentid.Size = new System.Drawing.Size(169, 41);
             this.txt_currentid.TabIndex = 5;
             // 
             // btn_applycurrent
             // 
             this.btn_applycurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_applycurrent.Location = new System.Drawing.Point(190, 7);
+            this.btn_applycurrent.Location = new System.Drawing.Point(181, 140);
             this.btn_applycurrent.Name = "btn_applycurrent";
             this.btn_applycurrent.Size = new System.Drawing.Size(17, 41);
             this.btn_applycurrent.TabIndex = 6;
@@ -205,7 +205,7 @@
             // 
             // btn_mass_apply
             // 
-            this.btn_mass_apply.Location = new System.Drawing.Point(12, 140);
+            this.btn_mass_apply.Location = new System.Drawing.Point(12, 192);
             this.btn_mass_apply.Name = "btn_mass_apply";
             this.btn_mass_apply.Size = new System.Drawing.Size(90, 40);
             this.btn_mass_apply.TabIndex = 2;
@@ -246,7 +246,7 @@
             // 
             // nmr_entities
             // 
-            this.nmr_entities.Location = new System.Drawing.Point(150, 140);
+            this.nmr_entities.Location = new System.Drawing.Point(150, 192);
             this.nmr_entities.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -263,7 +263,7 @@
             // 
             // nmr_delay
             // 
-            this.nmr_delay.Location = new System.Drawing.Point(150, 160);
+            this.nmr_delay.Location = new System.Drawing.Point(150, 212);
             this.nmr_delay.Maximum = new decimal(new int[] {
             2147483647,
             0,
@@ -276,7 +276,7 @@
             // lbl_entities
             // 
             this.lbl_entities.AutoSize = true;
-            this.lbl_entities.Location = new System.Drawing.Point(108, 143);
+            this.lbl_entities.Location = new System.Drawing.Point(108, 195);
             this.lbl_entities.Name = "lbl_entities";
             this.lbl_entities.Size = new System.Drawing.Size(40, 13);
             this.lbl_entities.TabIndex = 9;
@@ -285,7 +285,7 @@
             // lbl_delay
             // 
             this.lbl_delay.AutoSize = true;
-            this.lbl_delay.Location = new System.Drawing.Point(116, 164);
+            this.lbl_delay.Location = new System.Drawing.Point(116, 216);
             this.lbl_delay.Name = "lbl_delay";
             this.lbl_delay.Size = new System.Drawing.Size(32, 13);
             this.lbl_delay.TabIndex = 9;
@@ -294,7 +294,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(-6, 124);
+            this.label3.Location = new System.Drawing.Point(-6, 176);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(223, 13);
             this.label3.TabIndex = 10;
@@ -304,7 +304,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(210, 192);
+            this.ClientSize = new System.Drawing.Size(210, 239);
             this.Controls.Add(this.lbl_delay);
             this.Controls.Add(this.lbl_entities);
             this.Controls.Add(this.nmr_delay);
