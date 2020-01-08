@@ -12,22 +12,15 @@ namespace Effectz
     [Author("tonmAr", ResourceName = "GitHub repository", ResourceUrl = "https://github.com/xnumad/Effectz")]
     public partial class GUI : ExtensionForm
     {
-        private ushort RoomUserEffect;
-
         public GUI()
         {
             InitializeComponent();
         }
 
-        private void GUI_Load(object sender, EventArgs e)
-        {
-            RoomUserEffect = Game.GetMessageIds("3a346165e3c8214ff4c4b8fc006339e7").FirstOrDefault();
-        }
-
         private async void btn_start_Click(object sender, EventArgs e)
         {
             txt_currentid.Text = nmr_startid.Text;
-            await Connection.SendToClientAsync(new HMessage(RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+            await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
             timer.Start();
             btn_pause.Text = "⏸Pause";
             btn_pause.Visible = true;
@@ -54,13 +47,13 @@ namespace Effectz
             if (nmr_stopid.Value > Convert.ToDecimal(txt_currentid.Text))
             {
                 txt_currentid.Text = Convert.ToString(Convert.ToInt32(txt_currentid.Text) + 1);
-                await Connection.SendToClientAsync(new HMessage(RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
                 
             }
             else if (chk_loop.Checked == true)
             {
                 txt_currentid.Text = nmr_startid.Text;
-                await Connection.SendToClientAsync(new HMessage(RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
             }
             else
             {
@@ -73,7 +66,7 @@ namespace Effectz
         {
             if(txt_currentid.Text != "" && isDigitsOnly(txt_currentid.Text))
             {   
-                await Connection.SendToClientAsync(new HMessage(RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
             }
         }
 
@@ -94,7 +87,7 @@ namespace Effectz
         {
             for (int i = 0; i < (Convert.ToInt32(nmr_entities.Value)); i++)
             {
-                Connection.SendToClientAsync(new HMessage(RoomUserEffect, i, Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+                Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, i, Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
                 System.Threading.Thread.Sleep(Convert.ToInt32(nmr_delay.Value));
             }
         }

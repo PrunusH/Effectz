@@ -340,7 +340,6 @@
             this.Name = "GUI";
             this.Text = "Effectz";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.GUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nmr_startid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_stopid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_interval)).EndInit();
