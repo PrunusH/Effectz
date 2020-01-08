@@ -64,9 +64,22 @@ namespace Effectz
 
         private async void btn_applycurrent_Click(object sender, EventArgs e)
         {
-            if(txt_currentid.Text != "" && isDigitsOnly(txt_currentid.Text))
-            {   
-                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+            if (!currentIdOk())
+                return;
+
+            await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+        }
+
+        private bool currentIdOk()
+        {
+            if (txt_currentid.Text != "" && isDigitsOnly(txt_currentid.Text))
+            {
+                return true;
+            }
+            else
+            {
+                toolTip.Show("Insert the effect ID you want to apply", txt_currentid);
+                return false;
             }
         }
 
@@ -85,6 +98,9 @@ namespace Effectz
 
         private void btn_mass_apply_Click(object sender, EventArgs e)
         {
+            if (!currentIdOk())
+                return;
+            
             for (int i = 0; i < (Convert.ToInt32(nmr_entities.Value)); i++)
             {
                 Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, i, Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
