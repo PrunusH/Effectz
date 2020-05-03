@@ -39,7 +39,6 @@
             this.btn_start = new System.Windows.Forms.Button();
             this.btn_pause = new System.Windows.Forms.Button();
             this.chk_loop = new System.Windows.Forms.CheckBox();
-            this.txt_currentid = new System.Windows.Forms.TextBox();
             this.btn_applycurrent = new System.Windows.Forms.Button();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btn_mass_apply = new System.Windows.Forms.Button();
@@ -51,12 +50,14 @@
             this.lbl_entities = new System.Windows.Forms.Label();
             this.lbl_delay = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.nmr_currentId = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_startid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_stopid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_interval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_index)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_entities)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_delay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_currentId)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_startid
@@ -183,22 +184,14 @@
             this.chk_loop.Text = "Loop";
             this.chk_loop.UseVisualStyleBackColor = true;
             // 
-            // txt_currentid
-            // 
-            this.txt_currentid.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.txt_currentid.Location = new System.Drawing.Point(12, 140);
-            this.txt_currentid.Name = "txt_currentid";
-            this.txt_currentid.Size = new System.Drawing.Size(169, 41);
-            this.txt_currentid.TabIndex = 5;
-            // 
             // btn_applycurrent
             // 
             this.btn_applycurrent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_applycurrent.Location = new System.Drawing.Point(181, 140);
+            this.btn_applycurrent.Location = new System.Drawing.Point(111, 150);
             this.btn_applycurrent.Name = "btn_applycurrent";
-            this.btn_applycurrent.Size = new System.Drawing.Size(17, 41);
+            this.btn_applycurrent.Size = new System.Drawing.Size(46, 23);
             this.btn_applycurrent.TabIndex = 6;
-            this.btn_applycurrent.Text = ">";
+            this.btn_applycurrent.Text = "Apply";
             this.toolTip.SetToolTip(this.btn_applycurrent, "Directly apply effect to selected index");
             this.btn_applycurrent.UseVisualStyleBackColor = true;
             this.btn_applycurrent.Click += new System.EventHandler(this.btn_applycurrent_Click);
@@ -300,6 +293,24 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "____________________________________";
             // 
+            // nmr_currentId
+            // 
+            this.nmr_currentId.Location = new System.Drawing.Point(48, 153);
+            this.nmr_currentId.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.nmr_currentId.Name = "nmr_currentId";
+            this.nmr_currentId.Size = new System.Drawing.Size(64, 20);
+            this.nmr_currentId.TabIndex = 11;
+            this.nmr_currentId.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nmr_currentId.ValueChanged += new System.EventHandler(this.btn_applycurrent_Click);
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,8 +334,8 @@
             this.Controls.Add(this.lbl_stopid);
             this.Controls.Add(this.nmr_startid);
             this.Controls.Add(this.lbl_startid);
-            this.Controls.Add(this.txt_currentid);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.nmr_currentId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "GUI";
             this.Text = "Effectz";
@@ -335,6 +346,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nmr_index)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_entities)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmr_delay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_currentId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,7 +364,6 @@
         private System.Windows.Forms.Button btn_start;
         private System.Windows.Forms.Button btn_pause;
         private System.Windows.Forms.CheckBox chk_loop;
-        private System.Windows.Forms.TextBox txt_currentid;
         private System.Windows.Forms.Button btn_applycurrent;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Label lbl_ms;
@@ -364,6 +375,7 @@
         private System.Windows.Forms.Label lbl_entities;
         private System.Windows.Forms.Label lbl_delay;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown nmr_currentId;
     }
 }
 

@@ -19,8 +19,8 @@ namespace Effectz
 
         private async void btn_start_Click(object sender, EventArgs e)
         {
-            txt_currentid.Text = nmr_startid.Text;
-            await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+            nmr_currentId.Value = nmr_startid.Value;
+            await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(nmr_currentId.Value), 0).ToBytes());
             timer.Start();
             btn_pause.Text = "⏸Pause";
             btn_pause.Visible = true;
@@ -44,16 +44,16 @@ namespace Effectz
         {
             timer.Interval = Convert.ToInt32(nmr_interval.Value);
 
-            if (nmr_stopid.Value > Convert.ToDecimal(txt_currentid.Text))
+            if (nmr_stopid.Value > nmr_currentId.Value)
             {
-                txt_currentid.Text = Convert.ToString(Convert.ToInt32(txt_currentid.Text) + 1);
-                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+                nmr_currentId.Value++;
+                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(nmr_currentId.Value), 0).ToBytes());
                 
             }
             else if (chk_loop.Checked == true)
             {
-                txt_currentid.Text = nmr_startid.Text;
-                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+                nmr_currentId.Value = nmr_startid.Value;
+                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(nmr_currentId.Value), 0).ToBytes());
             }
             else
             {
@@ -64,46 +64,14 @@ namespace Effectz
 
         private async void btn_applycurrent_Click(object sender, EventArgs e)
         {
-            if (!currentIdOk())
-                return;
-
-            await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
-        }
-
-        private bool currentIdOk()
-        {
-            if (txt_currentid.Text != "" && isDigitsOnly(txt_currentid.Text))
-            {
-                return true;
-            }
-            else
-            {
-                toolTip.Show("Insert the effect ID you want to apply", txt_currentid);
-                return false;
-            }
-        }
-
-        private bool isDigitsOnly(string str)
-        {
-            foreach (char c in str)
-            {
-                if (c < '0' || c > '9')
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(nmr_currentId.Value), 0).ToBytes());
         }
 
         private void btn_mass_apply_Click(object sender, EventArgs e)
-        {
-            if (!currentIdOk())
-                return;
-            
+        {            
             for (int i = 0; i < (Convert.ToInt32(nmr_entities.Value)); i++)
             {
-                Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, i, Convert.ToInt32(txt_currentid.Text), 0).ToBytes());
+                Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, i, Convert.ToInt32(nmr_currentId.Value), 0).ToBytes());
                 System.Threading.Thread.Sleep(Convert.ToInt32(nmr_delay.Value));
             }
         }
