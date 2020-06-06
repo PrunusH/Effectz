@@ -15,6 +15,7 @@ namespace Effectz
         public GUI()
         {
             InitializeComponent();
+            nmr_interval_ValueChanged(null, null);
         }
 
         private async void btn_start_Click(object sender, EventArgs e)
