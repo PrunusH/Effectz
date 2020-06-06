@@ -42,8 +42,6 @@ namespace Effectz
 
         private async void timer_Tick(object sender, EventArgs e)
         {
-            timer.Interval = Convert.ToInt32(nmr_interval.Value);
-
             if (nmr_stopid.Value > nmr_currentId.Value)
             {
                 nmr_currentId.Value++;
@@ -74,6 +72,11 @@ namespace Effectz
                 Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, i, Convert.ToInt32(nmr_currentId.Value), 0).ToBytes());
                 System.Threading.Thread.Sleep(Convert.ToInt32(nmr_delay.Value));
             }
+        }
+
+        private void nmr_interval_ValueChanged(object sender, EventArgs e)
+        {
+            timer.Interval = (int)nmr_interval.Value;
         }
     }
 }

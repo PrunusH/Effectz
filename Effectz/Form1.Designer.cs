@@ -147,6 +147,7 @@
             0,
             0,
             0});
+            this.nmr_interval.ValueChanged += new System.EventHandler(this.nmr_interval_ValueChanged);
             // 
             // timer
             // 
