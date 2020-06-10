@@ -43,22 +43,21 @@ namespace Effectz
 
         private async void timer_Tick(object sender, EventArgs e)
         {
-            if (nmr_stopid.Value > nmr_currentId.Value)
+            if (nmr_currentId.Value >= nmr_stopid.Value) //End reached
             {
-                nmr_currentId.Value++;
-                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(nmr_currentId.Value), 0).ToBytes());
-                
-            }
-            else if (chk_loop.Checked == true)
-            {
-                nmr_currentId.Value = nmr_startid.Value;
-                await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(nmr_currentId.Value), 0).ToBytes());
+                if (chk_loop.Checked)
+                    nmr_currentId.Value = nmr_startid.Value;
+                else
+                {
+                    btn_pause.Visible = false;
+                    timer.Stop();
+                    return;
+                }
             }
             else
-            {
-                btn_pause.Visible = false;
-                timer.Stop();
-            }
+                nmr_currentId.Value++;
+
+            await Connection.SendToClientAsync(new HMessage(In.RoomUserEffect, Convert.ToInt32(nmr_index.Value), Convert.ToInt32(nmr_currentId.Value), 0).ToBytes());
         }
 
         private async void btn_applycurrent_Click(object sender, EventArgs e)
