@@ -12,6 +12,8 @@ namespace Effectz
     [Author("tonmAr", ResourceName = "GitHub repository", ResourceUrl = "https://github.com/xnumad/Effectz")]
     public partial class GUI : ExtensionForm
     {
+        public override bool IsRemoteModule => true;
+
         public GUI()
         {
             InitializeComponent();
